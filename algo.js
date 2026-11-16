@@ -1,29 +1,36 @@
-function compute(array1, array2) {
+function compute(array) {
   let new_array = [];
 
-  for (let i = 0; i < array1.length; i++) {
-    const element = array1[i];
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
 
-    new_array.push(element);
+    if (element % 2 === 0) {
+      new_array.push(element);
+    }
   }
 
-  for (let i = 0; i < array2.length; i++) {
-    const element = array2[i];
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
 
-    new_array.push(element);
+    if (element % 2 !== 0) {
+      new_array.push(element);
+    }
   }
 
   return new_array;
 }
 
-console.log(compute([1, 2, 3], [4, 5, 6]));
-// [1, 2, 3, 4, 5, 6]
+console.log(compute([1, 2, 3, 4, 5, 6]));
+// [2, 4, 6, 1, 3, 5]
 
-console.log(compute([10, 20], [30, 40]));
-// [10, 20, 30, 40]
+console.log(compute([7, 4, 9, 2, 5]));
+// [4, 2, 7, 9, 5]
 
-console.log(compute([], [1, 2]));
-// [1, 2]
+console.log(compute([1, 3, 5]));
+// [1, 3, 5]
 
-console.log(compute([1, 2], []));
-// [1, 2]
+console.log(compute([2, 4, 6]));
+// [2, 4, 6]
+
+console.log(compute([]));
+// []
