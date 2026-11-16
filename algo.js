@@ -1,20 +1,18 @@
 function compute(array) {
-  let new_array = [];
+  let count = 0;
 
   for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-
-    new_array.push(element);
+    count++;
   }
 
-  return new_array;
+  return count;
 }
 
-console.log(compute([1, 2, 3, 4]));
-// [1, 2, 3, 4]
+console.log(compute([10, 20, 30, 40]));
+// 4
 
 console.log(compute(["a", "b", "c"]));
-// ["a", "b", "c"]
+// 3
 
 console.log(compute([]));
-// []
+// 0
