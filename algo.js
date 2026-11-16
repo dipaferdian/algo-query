@@ -1,23 +1,25 @@
 function compute(array) {
-  let sum = 0;
+  let min = null;
 
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
 
-    sum += element;
+    if (element < min || min === null) {
+      min = element;
+    }
   }
 
-  return sum;
+  return min;
 }
 
-console.log(compute([10, 20, 30]));
-// 60
+console.log(compute([10, 20, 30, 40]));
+// 10
 
-console.log(compute([1, 2, 3, 4, 5]));
-// 15
+console.log(compute([5, 2, 9, 1]));
+// 1
 
-console.log(compute([-2, 5, -3]));
-// 0
+console.log(compute([-10, -3, -20]));
+// -20
 
 console.log(compute([]));
-// 0
+// null
