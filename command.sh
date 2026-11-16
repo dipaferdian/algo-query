@@ -43,3 +43,14 @@ dig -b 127.0.0.2 -p 15353 @127.0.0.1 www.lab.test
 
 # view and catch network interface
 sudo tcpdump -ni any -nn 'port 15353 or port 53'
+
+# curl header only response
+curl -I -X <http method> <url>
+
+# curl body and header response
+curl -i -X  <http method> <url>
+
+# curl with body json request
+curl -X <http method> <url> \
+  -H "Content-Type: application/json" \
+  -d '{}'
