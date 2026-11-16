@@ -1,21 +1,23 @@
 function compute(array, target) {
+  let count = 0;
+
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
 
-    if (element > target) return element;
+    if (element === target) count++;
   }
 
-  return null;
+  return count;
 }
 
-console.log(compute([2, 5, 8, 1, 10], 6));
-// 8
+console.log(compute([1, 2, 3, 2, 4, 2], 2));
+// 3
 
-console.log(compute([1, 2, 3, 4], 5));
-// null
+console.log(compute([5, 5, 5, 5], 5));
+// 4
 
-console.log(compute([10, 20, 30], 5));
-// 10
+console.log(compute([1, 2, 3], 9));
+// 0
 
-console.log(compute([], 5));
-// null
+console.log(compute([], 1));
+// 0
