@@ -53,4 +53,14 @@ curl -i -X  <http method> <url>
 # curl with body json request
 curl -X <http method> <url> \
   -H "Content-Type: application/json" \
+  -H "Authorization: "
   -d '{}'
+
+
+  curl -X POST http://localhost:8080/products \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer secret12" \
+  -d '{"id": 1, "name": "cara", "price":1000}'
+
+
+  curl -i -X OPTIONS http://localhost:8080/products
