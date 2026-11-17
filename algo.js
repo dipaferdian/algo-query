@@ -1,28 +1,38 @@
 function compute(array) {
-  let odd = [];
-  let even = [];
+  let min = null;
+  let max = null;
 
-  for (let i = 0; i < array.length; i++) {
-    const element = array[i];
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
 
-    if (element % 2 === 0) {
-      even.push(element);
+    if (max === null) {
+      max = element;
     } else {
-      odd.push(element);
+      if (element > max) {
+        min = max;
+        max = element;
+      } else {
+        if (element > min && element != max) {
+          min = element;
+        }
+      }
     }
   }
 
-  return [...even, ...odd];
+  return min;
 }
 
-console.log(compute([1, 2, 3, 4, 5, 6]));
-// [2, 4, 6, 1, 3, 5]
+console.log(compute([10, 5, 8, 20, 15]));
+// 15
 
-console.log(compute([7, 3, 2, 8, 5]));
-// [2, 8, 7, 3, 5]
+console.log(compute([5, 5, 3, 2]));
+// 3
 
-console.log(compute([2, 4, 6]));
-// [2, 4, 6]
+console.log(compute([1, 2, 3]));
+// 2
+
+console.log(compute([10, 10, 10]));
+// null
 
 console.log(compute([]));
-// []
+// null
