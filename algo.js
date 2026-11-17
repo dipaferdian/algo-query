@@ -1,18 +1,20 @@
+function isElementExist(array, value) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+
+    if (element === value) return true;
+  }
+
+  return false;
+}
+
 function compute(array) {
   let new_array = [];
 
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
 
-    if (element % 2 === 0) {
-      new_array.push(element);
-    }
-  }
-
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-
-    if (element % 2 !== 0) {
+    if (!isElementExist(new_array, element)) {
       new_array.push(element);
     }
   }
@@ -20,17 +22,14 @@ function compute(array) {
   return new_array;
 }
 
-console.log(compute([1, 2, 3, 4, 5, 6]));
-// [2, 4, 6, 1, 3, 5]
+console.log(compute([1, 2, 2, 1]));
+// [1, 2, 3, 4]
 
-console.log(compute([7, 4, 9, 2, 5]));
-// [4, 2, 7, 9, 5]
+console.log(compute([5, 5, 5, 5]));
+// [5]
 
-console.log(compute([1, 3, 5]));
-// [1, 3, 5]
-
-console.log(compute([2, 4, 6]));
-// [2, 4, 6]
+console.log(compute([1, 2, 3]));
+// [1, 2, 3]
 
 console.log(compute([]));
 // []
