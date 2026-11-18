@@ -6,13 +6,13 @@ function compute(array, steps) {
   let new_array = [];
   let move_element_position = [];
 
-  for (let index = array.length - 1; index >= 0; index--) {
+  for (let index = 0; index < array.length; index++) {
     const element = array[index];
 
-    if (move_element_position.length === actual_steps) {
-      new_array.unshift(element);
+    if (new_array.length + actual_steps !== array.length) {
+      new_array.push(element);
     } else {
-      move_element_position.unshift(element);
+      move_element_position.push(element);
     }
   }
 
