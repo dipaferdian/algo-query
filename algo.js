@@ -1,41 +1,30 @@
-function compute(array, steps) {
-  if (array.length === 0) return [];
-  if (steps === 0) return array;
-
-  const actual_steps = steps % array.length;
-  let new_array = [];
-  let move_element_position = [];
+function compute(array, n) {
+  let expected_sum = (n * (n + 1)) / 2;
+  let current_sum = 0;
 
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
 
-    if (new_array.length + actual_steps !== array.length) {
-      new_array.push(element);
-    } else {
-      move_element_position.push(element);
-    }
+    current_sum += element;
   }
 
-  return [...move_element_position, ...new_array];
+  return expected_sum - current_sum;
 }
 
-console.log(compute([1, 2, 3, 4, 5], 1));
-// [5, 1, 2, 3, 4]
+console.log(compute([1, 2, 4, 5], 5));
+// 3
 
-console.log(compute([1, 2, 3, 4, 5], 2));
-// [4, 5, 1, 2, 3]
+console.log(compute([2, 3, 4, 5], 5));
+// 1
 
-console.log(compute([1, 2, 3], 3));
-// [1, 2, 3]
+console.log(compute([1, 2, 3, 4], 5));
+// 5
 
-console.log(compute([1, 2, 3], 0));
-// [1, 2, 3]
+console.log(compute([1], 2));
+// 2
 
-console.log(compute([], 2));
-// []
+console.log(compute([5, 1, 4, 2], 5));
+// 3
 
-console.log(compute([1, 2, 3], 5));
-// [2, 3, 1]
-
-console.log(compute([1, 2, 3], 0));
-// [1, 2, 3]
+console.log(compute([3, 1, 5, 2], 5));
+// 4
