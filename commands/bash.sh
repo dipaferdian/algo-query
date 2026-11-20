@@ -1,11 +1,7 @@
-
-  for i in $(seq 0 150); do
-    printf "0x-%02x.a.hackycorp.com\n" "$i"
-done > subdomain2.txt
-
-
-for i in `cat subdomain.txt`; do
-    curl $i/logo.png -o $i.png
+# generate subdomains
+for i in `seq 0 155`; do
+    printf "0x%02x.a.hackycorp.com\n" "$i"
+done > /home/alo-dipaferdian/works/personal/labs/hosts/subdomain.txt
 
 # check last 10 subdomain result
 tail subdomain.txt 
@@ -13,3 +9,7 @@ tail subdomain.txt
 # change run folder location recon.sh
 alias recon.sh="path/recon.sh"
 
+# run curl by specific subdomain
+for i in `cat /home/alo-dipaferdian/works/personal/labs/hosts/subdomain.txt`; do
+    curl $i/logo.png -o $i.png
+done

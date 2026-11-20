@@ -19,7 +19,7 @@ cat /home/alo-dipaferdian/works/personal/labs/hosts/subdomain.txt | aquatone \
   -chrome-path /snap/bin/chromium \
   -out ./hackycorp
 
-# run specific domain with aquatone for subdomain enumeration with chromium and timeout
+# run specific domain with aquatone for subdomain enumeration with chromium, port 443, and timeout
 echo "www.hackycorp.com" | aquatone \
   -ports 443 \
   -scan-timeout 5000 \
@@ -27,7 +27,7 @@ echo "www.hackycorp.com" | aquatone \
   -debug \
   -out ./hackycorp
 
-
+# run aquatone for subdomain enumeration with chromium and timeout
 cat /home/alo-dipaferdian/works/personal/labs/hosts/subdomain.txt | aquatone \
   -scan-timeout 5000 \
   -http-timeout 10000 \
